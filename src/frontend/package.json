@@ -1,0 +1,22 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "watch": "vite build --watch",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "Jongdae Park",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@tailwindcss/vite": "4.1.10",
+    "tailwindcss": "4.1.10",
+    "vite": "6.4.2"
+  },
+  "dependencies": {
+    "htmx.org": "2.0.5"
+  }
+}

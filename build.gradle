@@ -1,0 +1,73 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '4.0.5'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'com.github.node-gradle.node' version '7.1.0'
+}
+
+group = 'com.omnia'
+version = '0.0.1'
+description = 'pdf'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+node {
+    download = true
+    version = "24.15.0"
+    npmVersion = "11.12.1"
+
+    // 1. 다운로드된 Node.js 바이너리(실행 파일)가 위치할 곳
+    workDir = file("${project.layout.buildDirectory.get()}/nodejs")
+    // 2. npm 전역 캐시/설정이 위치할 곳
+    npmWorkDir = file("${project.layout.buildDirectory.get()}/npm")
+    // 3. 실제 프론트엔드 코드(package.json)가 있는 위치
+    nodeProjectDir = file("${project.projectDir}/src/frontend")
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    implementation 'io.github.wimdeblauwe:htmx-spring-boot-thymeleaf:5.1.0'
+    implementation 'org.apache.pdfbox:pdfbox:3.0.7'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-thymeleaf-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+tasks.register('npmCi', NpmTask) {
+    group = 'Node'
+    args = ['ci']
+    inputs.file file("${project.projectDir}/src/frontend/package-lock.json")
+    outputs.dir file("${project.projectDir}/src/frontend/node_modules")
+}
+
+tasks.register('buildFrontend', NpmTask) {
+    group = 'Node'
+    args = ['run', 'build']
+
+    dependsOn 'npmCi'
+}
+
+tasks.named('processResources') {
+    dependsOn 'buildFrontend'
+}
+
+tasks.named('clean') {
+    delete file("${project.projectDir}/src/main/resources/static/dist")
+}
