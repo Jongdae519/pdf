@@ -18,13 +18,8 @@ java {
 node {
     download = true
     version = "24.15.0"
-    npmVersion = "11.12.1"
 
-    // 1. 다운로드된 Node.js 바이너리(실행 파일)가 위치할 곳
     workDir = file("${project.layout.buildDirectory.get()}/nodejs")
-    // 2. npm 전역 캐시/설정이 위치할 곳
-    npmWorkDir = file("${project.layout.buildDirectory.get()}/npm")
-    // 3. 실제 프론트엔드 코드(package.json)가 있는 위치
     nodeProjectDir = file("${project.projectDir}/src/frontend")
 }
 
@@ -53,6 +48,7 @@ tasks.named('test') {
 tasks.register('npmCi', NpmTask) {
     group = 'Node'
     args = ['ci']
+
     inputs.file file("${project.projectDir}/src/frontend/package-lock.json")
     outputs.dir file("${project.projectDir}/src/frontend/node_modules")
 }
