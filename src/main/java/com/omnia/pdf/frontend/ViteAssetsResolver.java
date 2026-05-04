@@ -30,7 +30,7 @@ public class ViteAssetsResolver {
     @PostConstruct
     public void init() {
         if (!manifestResource.exists()) {
-            throw new IllegalStateException("Vite manifest.json not found.");
+            throw new IllegalStateException("Vite manifest.json not found at: " + manifestResource.getDescription());
         }
 
         try (InputStream is = manifestResource.getInputStream()) {
