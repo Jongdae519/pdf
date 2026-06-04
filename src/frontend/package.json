@@ -12,9 +12,9 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@tailwindcss/vite": "4.1.10",
-    "tailwindcss": "4.1.10",
-    "vite": "6.4.2"
+    "@tailwindcss/vite": "4.3.0",
+    "tailwindcss": "4.3.0",
+    "vite": "7.3.3"
   },
   "dependencies": {
     "htmx.org": "2.0.5"

@@ -35,10 +35,10 @@ public class ViteAssetsResolver {
 
         try (InputStream is = manifestResource.getInputStream()) {
             JsonNode rootNode = objectMapper.readTree(is);
-            String viteJsFile = rootNode.path("index.js").path("file").asText();
+            String viteJsFile = rootNode.path("index.js").path("file").asString();
             List<String> viteCssFileList = rootNode.path("index.js").path("css")
                     .valueStream()
-                    .map(jsonNode -> jsonNode.asText())
+                    .map(JsonNode::asString)
                     .toList();
 
             this.viteAssets = ViteAssets.of(viteJsFile, viteCssFileList);
