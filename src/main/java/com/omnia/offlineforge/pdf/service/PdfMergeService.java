@@ -1,6 +1,6 @@
-package com.omnia.pdf.service;
+package com.omnia.offlineforge.pdf.service;
 
-import com.omnia.pdf.domain.MergedPdfDocument;
+import com.omnia.offlineforge.pdf.domain.MergedPdfDocument;
 import org.apache.pdfbox.io.IOUtils;
 import org.apache.pdfbox.io.RandomAccessReadBuffer;
 import org.apache.pdfbox.multipdf.PDFMergerUtility;

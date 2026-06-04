@@ -1,4 +1,4 @@
-package com.omnia.pdf.domain;
+package com.omnia.offlineforge.pdf.domain;
 
 public record MergedPdfDocument(
         String fileName,

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: pdf
+    name: offline-forge
   servlet:
     multipart:
       max-file-size: 50MB      # 업로드하는 파일 1개당 최대 허용 크기

@@ -1,4 +1,4 @@
-package com.omnia.pdf.frontend;
+package com.omnia.offlineforge.frontend;
 
 import java.util.List;
 

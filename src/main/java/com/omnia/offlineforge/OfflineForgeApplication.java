@@ -1,13 +1,13 @@
-package com.omnia.pdf;
+package com.omnia.offlineforge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PdfApplication {
+public class OfflineForgeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PdfApplication.class, args);
+        SpringApplication.run(OfflineForgeApplication.class, args);
     }
 
 }

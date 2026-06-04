@@ -7,7 +7,7 @@ plugins {
 
 group = 'com.omnia'
 version = '0.0.1'
-description = 'pdf'
+description = 'offline-forge'
 
 java {
     toolchain {

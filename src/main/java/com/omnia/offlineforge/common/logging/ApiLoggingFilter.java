@@ -1,4 +1,4 @@
-package com.omnia.pdf.logging;
+package com.omnia.offlineforge.common.logging;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

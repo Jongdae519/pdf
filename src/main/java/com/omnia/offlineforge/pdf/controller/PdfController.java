@@ -1,7 +1,7 @@
-package com.omnia.pdf.controller;
+package com.omnia.offlineforge.pdf.controller;
 
-import com.omnia.pdf.domain.MergedPdfDocument;
-import com.omnia.pdf.service.PdfMergeService;
+import com.omnia.offlineforge.pdf.domain.MergedPdfDocument;
+import com.omnia.offlineforge.pdf.service.PdfMergeService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

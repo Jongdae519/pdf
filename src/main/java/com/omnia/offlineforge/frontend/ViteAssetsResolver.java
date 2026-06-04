@@ -1,8 +1,7 @@
-package com.omnia.pdf.frontend;
+package com.omnia.offlineforge.frontend;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import tools.jackson.databind.JsonNode;
